@@ -1,0 +1,15 @@
+ ____             __       ___                                
+/\  _`\          /\ \     /\_ \                               
+\ \ \/\ \     __ \ \ \/'\ \//\ \       __     _____     ___   
+ \ \ \ \ \  /'__`\\ \ , <   \ \ \    /'__`\  /\ '__`\  / __`\ 
+  \ \ \_\ \/\  __/ \ \ \\`\  \_\ \_ /\ \L\.\_\ \ \L\ \/\ \L\ \
+   \ \____/\ \____\ \ \_\ \_\/\____\\ \__/.\_\\ \ ,__/\ \____/
+    \/___/  \/____/  \/_/\/_/\/____/ \/__/\/_/ \ \ \/  \/___/ 
+                                                \ \_\         
+                                                 \/_/         
+
+Ahol lehetett, ott probaltam mindig jobbrekurziv megoldasokat
+irni, ha valahol valami nem jo, csinalj issuet, es majd javitom.
+
+A ceklas feladatok megoldasait a linuxos cekla forditoval neztem
+meg, de gondolom lefordul g++ alatt is.
