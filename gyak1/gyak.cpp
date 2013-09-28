@@ -204,3 +204,89 @@ int sumsq2(list L) {
   return foldl(add, 0, map(sq, L));
 }
 
+//+1
+int max(int A, int B) {
+  return A > B ? A : B;
+}
+
+int min(int A, int B) {
+  return A > B ? B : A;
+}
+
+int tavolsag(list L) {
+  return foldl(max, hd(L), L) - foldl(min, hd(L), L);
+}
+
+//+2
+
+//+3
+
+//+4
+
+//+5
+
+int polinom(list L, int X, int S) {
+  if(L == nil) return S;
+               return polinom(tl(L), X, S*X + hd(L));
+}
+
+int polinom(list L, int X) {
+  return polinom(L, X, 0);
+}
+
+//+6
+list seq(int A, int B, int L) {
+  if(B < A) return L;
+            return seq(A, B-1, cons(B, L));
+}
+
+list seq(int A, int B) {
+  return seq(A, B, nil);
+}
+
+//+7
+int mul(int A, int B) {
+  return A*B;
+}
+
+int fact(int N) {
+  return foldl(mul, 1, seq(1, N));
+}
+
+//+8
+int prefix(list L1, list L2) {
+  if(L1 == nil)        return true;
+  if(L2 == nil)        return false;
+  if(hd(L1) != hd(L2)) return false;
+                       return prefix(tl(L1), tl(L2));
+}
+
+int search(list Haystack, list Needle, int Pos) {
+  if(Haystack == nil)          return 0;
+  if(prefix(Needle, Haystack)) return Pos;
+                               return search(tl(Haystack), Needle, Pos+1);
+}
+
+int search(list L, int L2) {
+  return search(L, L2, 1);
+}
+
+//+9
+int list2num(list L, int S) {
+  if(L == nil) return S;
+               return list2num(tl(L), S*10+hd(L));
+}
+
+int list2num(list L) {
+  return list2num(L, 0);
+}
+
+//+10
+list szamjegyek(int N, list L) {
+  if(N == 0) return L;
+             return szamjegyek(N/10, cons(N%10, L));
+}
+
+list szamjegyek(int N) {
+  return szamjegyek(N, nil);
+}
