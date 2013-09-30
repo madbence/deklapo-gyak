@@ -18,38 +18,50 @@ fa_pontszama(node(C1, C2), S) :-
   S is S1+S2+1.
 
 %5.
-fa_noveltje(leaf(L), leaf(L1)) :- L1 is L+1.
+fa_noveltje(leaf(L), leaf(L1)) :-
+  L1 is L+1.
 fa_noveltje(node(C1, C2), node(C3, C4)) :-
   fa_noveltje(C1, C3),
   fa_noveltje(C2, C4).
 
 %6.
 lista_hossza([], 0).
-lista_hossza([_|T], L) :- lista_hossza(T, L1), L is L1+1.
+lista_hossza([_|T], L) :-
+  lista_hossza(T, L1),
+  L is L1+1.
 
 %7.
 lista_noveltje([X], [X1]) :- X1 is X+1.
-lista_noveltje([H|T], [H1|T1]) :- lista_noveltje(T, T1), H1 is H+1.
+lista_noveltje([H|T], [H1|T1]) :-
+  lista_noveltje(T, T1),
+  H1 is H+1.
 
 %8.
 lista_utolso_eleme([X], X).
-lista_utolso_eleme([_|T], X) :- lista_utolso_eleme(T, X).
+lista_utolso_eleme([_|T], X) :-
+  lista_utolso_eleme(T, X).
 
 %9.
 fa_levelerteke(leaf(L), L).
-fa_levelerteke(node(C, _), C1) :- fa_levelerteke(C, C1).
-fa_levelerteke(node(_, C), C1) :- fa_levelerteke(C, C1).
+fa_levelerteke(node(C, _), C1) :-
+  fa_levelerteke(C, C1).
+fa_levelerteke(node(_, C), C1) :-
+  fa_levelerteke(C, C1).
 
 %10.
 fa_reszfaja(T, T).
-fa_reszfaja(node(C, _), C1) :- fa_reszfaja(C, C1).
-fa_reszfaja(node(_, C), C1) :- fa_reszfaja(C, C1).
+fa_reszfaja(node(C, _), C1) :-
+  fa_reszfaja(C, C1).
+fa_reszfaja(node(_, C), C1) :-
+  fa_reszfaja(C, C1).
 
-fa_levelerteke2(T, L) :-  fa_reszfaja(T, leaf(L)).
+fa_levelerteke2(T, L) :-
+  fa_reszfaja(T, leaf(L)).
 
 %11.
 lista_prefixuma([H|_], [H]).
-lista_prefixuma([H|T], [H|T2]) :- lista_prefixuma(T, T2).
+lista_prefixuma([H|T], [H|T2]) :-
+  lista_prefixuma(T, T2).
 
 %+1
 fa_melysege(leaf(_),0).
@@ -83,7 +95,9 @@ fa_rendezett(node(C1, C2)) :-
 
 %+5.
 fa_tukorkepe(leaf(L), leaf(L)).
-fa_tukorkepe(node(C1, C2), node(C3, C4)) :- fa_tukorkepe(C1, C4), fa_tukorkepe(C2, C3).
+fa_tukorkepe(node(C1, C2), node(C3, C4)) :-
+  fa_tukorkepe(C1, C4),
+  fa_tukorkepe(C2, C3).
 
 %+6.
 fa_tukros(T) :- fa_tukorkepe(T, T).
